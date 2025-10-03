@@ -6,8 +6,8 @@
 #Activate matrix
 import pandas as pd #To real CSV and dataframes
 import numpy as np #To work with matrix
-from scipy import io, integrate, linalg, signal #Google told me, I don´t know what is it
-from scipy.sparse.linalg import cg, eigs #Google told me, I don´t know what is it
+from scipy import io, integrate, linalg, signal 
+from scipy.sparse.linalg import cg, eigs 
 
 
 #To create list
@@ -154,5 +154,6 @@ P_eq_todo['Impact']=P_eq_todo['Impact'].astype(float)
 #En caso de querer guardarlo: np.savetxt('P_eq_todo_ZAm1.txt',P_eq_todo, fmt="%s") 
 
 fig= px.choropleth(P_eq_todo,locations='ISO3',color='Impact',color_continuous_scale=px.colors.sequential.Plasma) #To paint the map, copy from internet
+
 
 fig.show() #To show the map
