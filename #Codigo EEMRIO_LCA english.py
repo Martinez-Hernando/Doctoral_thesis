@@ -1,4 +1,4 @@
-#Codigo EEMRIO by pilinya
+#Codigo EEMRIO by Martínez-Hernando
 
 #This information is necessary in Python, for activate the funtions 
 #If they are not installed is necessary to do it, write pip install XXXXX, being in the floor where are pip.py (in my case C:\Users\LIP\AppData\Local\Programs\Python\Python311\Scripts)
@@ -157,3 +157,4 @@ fig= px.choropleth(P_eq_todo,locations='ISO3',color='Impact',color_continuous_sc
 
 
 fig.show() #To show the map
+
