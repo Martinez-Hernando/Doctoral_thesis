@@ -6,9 +6,13 @@ Ys(177)=1;
 Rs=readmatrix('Rs_litio.txt');
 I=eye(n-177);
 Aio=readmatrix('Aio_litio_metal.txt');
-int=I-Aio;
+Aio_noport=Aio;
+Aio_noport(:,4401:4600)=0;
+int=I-Aio_noport;
 As(178:end,178:end)=int;
-A_inv=inv(As);
+As_1=As;
+As_1(178:end,94:109)=0;
+A_inv=inv(As_1);
 Matriz=A_inv*Ys;
 Matriz_rep= repmat(Matriz.', 18, 1);
 impacto_inicial=Rs*(A_inv*Ys);
@@ -16,6 +20,8 @@ impacto=Rs.*Matriz_rep;
 
 %%EN PORTUGAL
 As_mod=As;
+int_mod=I-Aio;
+As_mod(178:end,178:end)=int_mod;
 litio_total=abs(As(168,177)+As(169,177)+As(170,177)+As(171,177));
 litio_portugal=0.1*litio_total;
 As_mod(171,177)=-litio_portugal;

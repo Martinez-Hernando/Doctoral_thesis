@@ -7,14 +7,19 @@ I=eye(n-78);
 Aio=readmatrix('Aio_caucho.txt');
 int=I-Aio;
 As(79:end,79:end)=int;
-A_inv=inv(As);
+As_1=As;
+As_1(79:end,29:51)=0;
+A_inv=inv(As_1);
 Matriz=A_inv*Ys;
-Matriz_rep= repmat(Matriz.', 18, 1);
+Matriz_rep=repmat(Matriz.', 18, 1);
 impacto_inicial=Rs*(A_inv*Ys);
 impacto=Rs.*Matriz_rep;
 
 %%EN ESPAÑA
+Aio_esp=readmatrix('Aio_caucho_esp.txt');
+int_mod=I-Aio_esp;
 As_mod=As;
+As_mod(79:end,79:end)=int_mod;
 caucho_total=abs(As(74,78)+As(75,78)+As(76,78)+As(77,78));
 caucho_spain=0.1*caucho_total;
 As_mod(77,78)=-caucho_spain;
